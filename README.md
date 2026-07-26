@@ -1,3 +1,6 @@
+# Docker repo link
+
+
 # Setup
 
 
@@ -83,6 +86,8 @@ pip install -r requirements.txt
 
 **Create Docker repo and add secret tokens to github**
 
+**Update docker tags in .github/workflows/test.yml**
+
 ### Check docker images currently running
 ```bash
 docker compose ps
@@ -100,10 +105,23 @@ docker compose up --build
 
 ### Tag repo to docker
 ```bash
-docker tag assignment13_web:latest dbal7/is601_assignment13:latest
+docker tag assignment13-web:latest dbal7/is601_assignment13:latest
 ```
 
 ### Push to docker repo
 ```bash
 docker push dbal7/is601_assignment13:latest
+```
+
+# Issues
+
+## Internal Server error 500
+
+### Update main.py code
+
+Lines: 48, 53, 58, 64
+
+```bash
+return templates.TemplateResponse(request, "index.html")
+...
 ```
